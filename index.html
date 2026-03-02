@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcode Literasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        h1 { color: #333; }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button, a {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 90%;
+            border-radius: 8px;
+            text-decoration: none;
+            background-color: #4e73df;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        a:hover, button:hover {
+            background-color: #2e59d9;
+        }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Login -->
+    <div id="loginPage">
+        <h1>📚 Barcode Literasi</h1>
+        <p>Silakan isi nama untuk akses</p>
+        <input type="text" id="nama" placeholder="Masukkan Nama Anda">
+        <button onclick="masuk()">Masuk</button>
+    </div>
+
+    <!-- Menu -->
+    <div id="menuPage" class="hidden">
+        <h1>Selamat Datang</h1>
+        <p id="welcomeText"></p>
+
+        <a href="https://desapasayangan.my.id/">Profile Desa</a>
+        <a href="https://landing2-ipusnas.perpusnas.go.id/">
+    📚 Aplikasi iPerpusnas
+</a>
+        <a href="candil.html">CANDIL</a>
+    </div>
+
+</div>
+
+<script>
+function masuk() {
+    var nama = document.getElementById("nama").value;
+
+    if (nama === "") {
+        alert("Nama harus diisi!");
+        return;
+    }
+
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("menuPage").classList.remove("hidden");
+
+    document.getElementById("welcomeText").innerHTML =
+        "Halo, <b>" + nama + "</b>. Silakan pilih menu.";
+}
+</script>
+
+</body>
+</html>
